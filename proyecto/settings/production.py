@@ -5,7 +5,7 @@ import os
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 DEBUG = True
 
-ALLOWED_HOSTS = ['disenoarauco.herokuapp.com']
+ALLOWED_HOSTS = ['parauco.herokuapp.com']
 
 DATABASES = {
     'default': {
