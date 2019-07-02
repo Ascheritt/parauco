@@ -10,10 +10,10 @@ ALLOWED_HOSTS = ['parauco.herokuapp.com']
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'crud_django',
-        'USER': 'gonza',
-        'PASSWORD': 'gonza30',
-        'HOST': 'localhost',
+        'NAME': 'd2mi15rheeiqe5',
+        'USER': 'mxvnxbvvvgsmzy',
+        'PASSWORD': '98a2706fe9a00a6201bbfb0b5d52a678ae51d213f93d2e026723a64d7bef08d7',
+        'HOST': 'ec2-50-19-221-38.compute-1.amazonaws.com',
         'PORT': 5432,
     }
 }
