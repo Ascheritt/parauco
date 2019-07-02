@@ -1,0 +1,46 @@
+{% extends "indicador/base.html" %}
+    {% block horcones %}
+      <a class="navbar-brand mr-1" href="{% url 'indexadmin' %}">Horcones 2 - Arauco Administrador</a>
+    {% endblock %}
+    {% block lateral %}
+    <ul class="sidebar navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'cuadroadmin' %}">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>Cuadro de Mando</span>
+        </a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <!--<i class="fas fa-fw fa-folder"> icono de carpeta</i>-->
+          <i class="fas fa-fw fa-chart-area"></i>
+          <span>Acciones</span>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+          <h6 class="dropdown-header">Ejecutar:</h6>
+          <a class="dropdown-item" href="{% url 'crear_indicador' %}">Crear Indicador</a>
+          <!--Division para distintas secciones
+          <div class="dropdown-divider"></div>
+          <h6 class="dropdown-header">Tableros:</h6>
+          <a class="dropdown-item" href="404.html">404 Page</a>
+          <a class="dropdown-item" href="blank.html">Blank Page</a>
+          -->
+
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-fw fa-table"></i>
+          <span>Vistas</span>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+          <h6 class="dropdown-header">Tablas Disponibles:</h6>
+          <a class="dropdown-item" href="{% url 'lista_indicador' %}">Indicadores</a>
+        </div>
+      </li>
+    </ul>
+  {% endblock %}
+
+  {% block main %}
+  
+  {% endblock %}

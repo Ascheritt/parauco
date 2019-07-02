@@ -1,0 +1,59 @@
+{% extends "indicador/indexadmin.html" %}
+
+<style>
+  #customers {
+      font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+  }
+  
+  #customers td, #customers th {
+      border: 1px solid #ddd;
+      text-align: left;
+      padding: 8px;
+  }
+  
+  #customers tr:nth-child(even){background-color: #f2f2f2}
+  
+  #customers tr:hover {background-color: #ddd;}
+  
+  #customers th {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      background-color: #4CAF50;
+      color: white;
+  }
+  </style>
+
+    {% block main %}
+<center><h1 class="h3 mb-0 text-gray-800">Lista Indicador</h1></center></br>
+    <form action="" method="post">
+            {% csrf_token %}
+                      <div class="table-responsive">
+                        <table class="table table-bordered" id="customers" width="100%" cellspacing="0" border="2">
+                          <thead >
+                            <tr>
+                              <th>Codigo Indicador</th>
+                              <th>Nombre Indicador</th>
+                              <th>Categoria Indicador</th>
+                              <th>Meta Indicador</th>
+                              <th colspan="3">Acciones</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                              {% for i in object_list %}
+                            <tr>
+                                <td>{{ i.id}}</td>
+                                <td>{{ i.nombre_kpi}}</td>
+                                <td>{{ i.categoria.categoria}}</td>
+                                <td>{{ i.meta_kpi}}</td>
+                                <td style="width:30px"><center><button><a href="{% url 'editar_indicador' i.pk %}">Actualizar</a></button></center></td>
+                                <td style="width:30px"><center><button><a href="{% url 'eliminar_indicador' i.pk %}">Eliminar</a></button></center></td>
+                            </tr>
+                            {% endfor %}
+                          </tbody>
+                        </table>
+                      </div>
+
+    </form>
+{% endblock %}

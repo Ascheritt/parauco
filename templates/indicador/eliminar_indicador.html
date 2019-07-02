@@ -1,0 +1,12 @@
+{% extends "indicador/indexadmin.html "%}
+{% block main %}
+    <center><h1 class="h3 mb-0 text-gray-800">Eliminar Indicador</h1></center></br>
+        <form action="" method="post">
+            {% csrf_token %}
+            <center><h1 class="h3 mb-0 text-gray-800">¿Desea eliminar el Indicador {{ object.nombre_kpi}}?</h1></center></br>
+            <center><tr>
+            	<td><button type="submit">Eliminar</button></td>
+            	<td><button><a href="{% url 'indexadmin' %}">Cancelar</a></button></td>
+        	</tr><center>
+        </form>
+    {% endblock main %}

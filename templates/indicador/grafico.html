@@ -1,0 +1,101 @@
+{% extends "indicador/index.html" %}
+    <style>
+        #customers {
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+        
+        #customers td, #customers th {
+            border: 1px solid #ddd;
+            text-align: left;
+            padding: 8px;
+        }
+        
+        #customers tr:nth-child(even){background-color: #f2f2f2}
+        
+        #customers tr:hover {background-color: #ddd;}
+        
+        #customers th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            background-color: #4CAF50;
+            color: white;
+        }
+        </style>
+   {% block head %}
+   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+   <script type="text/javascript">
+      google.charts.load('current', {'packages':['gauge']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Nombre', 'Meta'],
+          {% if ind %}
+          {% for i in ind %}
+
+          ['{{i.nombre_kpi}}',{{i.meta_kpi}}],
+
+          {% endfor %}
+          
+          {% else %}
+          <h1> No Hay registros</h1>
+          {% endif%}
+        ]);
+        
+        var options = {
+          width: 400, height: 120,
+          greenFrom: 60, greenTo: 100,
+          yellowFrom:40, yellowTo: 60,
+          redFrom: 0, redTo:40,
+          minorTicks: 5
+        };
+
+        var chart = new google.visualization.Gauge(document.getElementById('chart_div'));
+
+        chart.draw(data, options);
+        //setInterval(function() {
+         // data.setValue(0, 1, 40 + Math.round(60 * Math.random()));
+        //  chart.draw(data, options);
+        //}, 13000);
+        //setInterval(function() {
+        //  data.setValue(1, 1, 40 + Math.round(60 * Math.random()));
+        //  chart.draw(data, options);
+        //}, 5000);
+        //setInterval(function() {
+        //  data.setValue(2, 1, 60 + Math.round(20 * Math.random()));
+        //  chart.draw(data, options);
+        //}, 26000);
+      }
+    </script>
+    {% endblock head %}
+    {% block main %}
+                <tr>
+                  <table class="table table-bordered" id="customers" width="100%" cellspacing="0" border="2">
+                    <thead >
+                      <tr>
+                        <th>Codigo Indicador</th>
+                        <th>Nombre Indicador</th>
+                        <th>Categoria Indicador</th>
+                        <th>Meta Indicador</th>
+                        <th>Grafico</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        {% for i in ind %}
+                      <tr>
+                          <td>{{ i.id}}</td>
+                          <td>{{ i.nombre_kpi}}</td>
+                          <td>{{ i.categoria.categoria}}</td>
+                          <td>{{ i.meta_kpi}}</td>
+                          <td>
+                          <div id="chart_div" style="width: 400px; height: 120px;"></div>
+                          </td>
+                      </tr>
+                      {% endfor %}
+                    </tbody>
+                    </table>
+                  </tr>
+  {% endblock main %}

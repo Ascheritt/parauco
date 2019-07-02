@@ -1,0 +1,19 @@
+{% block main %}
+	<center><h1 class="h3 mb-0 text-gray-800">Crear KPI Tablero</h1></center></br>
+    	<form action="" method="post">
+        	<center>
+		        {% csrf_token %}
+                {{ form.as_p}}
+                {% for i in form %}
+                <tr>
+                    <td>{{ i.nombre_tablero}}</td>
+                    <td>{{ i.fecha}}</td>
+                    {% for indicador in i.indicador.all %}
+                    <td>{{ indicador.nombre_kpi}}</td>
+                    {% endfor %}
+                {% endfor %}
+                </tr>
+        	</center>
+        	<center><button type="submit">Crear</button></center></br>
+    	</form>
+	{% endblock main %}

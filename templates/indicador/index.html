@@ -1,0 +1,45 @@
+{% extends "indicador/base.html" %}
+{% block horcones %}
+    <a class="navbar-brand mr-1" href="{% url 'index' %}">Horcones 2 - Arauco</a>
+    {% endblock%}
+{% block lateral %}
+    <ul class="sidebar navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'cuadro' %}">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>Cuadro de Mando</span>
+        </a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <!--<i class="fas fa-fw fa-folder"> icono de carpeta</i>-->
+          <i class="fas fa-fw fa-chart-area"></i>
+          <span>Acciones</span>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+          <h6 class="dropdown-header">Ingresar:</h6>
+          <a class="dropdown-item" href="{% url 'informacion_kpi' %}">Valor a indicador</a>
+          <!--<div class="dropdown-divider"></div>
+          <h6 class="dropdown-header">Tableros:</h6>
+          <a class="dropdown-item" href="404.html">404 Page</a>
+          <a class="dropdown-item" href="blank.html">Blank Page</a>
+          Division para distintas secciones-->
+        </div>
+
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-fw fa-table"></i>
+          <span>Vistas</span>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+          <h6 class="dropdown-header">Tablas Disponibles:</h6>
+          <a class="dropdown-item" href="{% url 'cuadro' %}">Cuadro</a>
+        </div>
+      </li>
+    </ul>
+  {% endblock %}
+
+  {% block main %}
+  
+  {% endblock %}

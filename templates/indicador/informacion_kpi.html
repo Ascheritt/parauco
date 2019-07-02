@@ -1,0 +1,14 @@
+{% extends "indicador/index.html" %}
+{% block main %}
+<center><h1 class="h3 mb-0 text-gray-800">Informacion Indicador</h1></center></br>
+    <form action="" method="post">
+        {% csrf_token %}
+    <center>
+        <div>Valor:{{ form.valor_kpi}}</div>    
+        <div>Seleccione Fecha:<input type="date" value="{{ form.fecha_modificacion }}"></div>
+        <div>Indicador:{{form.indicador}} </div>
+        <center><button type="submit">Crear</button></center></br>
+    </center>
+    </form>
+{% endblock main %}
+

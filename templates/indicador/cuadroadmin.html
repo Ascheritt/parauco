@@ -1,0 +1,20 @@
+{% extends "indicador/indexadmin.html" %}
+{% block main %}
+    <form method="POST">
+        {% csrf_token %}
+        {% if object_list %}
+        {% for i in object_list %}
+            <tr>
+                <center>
+                <td>{{ i.id}}</td>
+                <td>{{ i.categoria}}</td>
+                </center>
+            </tr>
+                <td style="width:30px"><center><button><a href="{% url 'graficoadmin' i.pk %}">Ver Grafico</a></button></center></td>
+        {% endfor %}
+        
+        {% else %}
+            <h1>No hay Registros</h1>
+            {% endif%}
+    </form>
+{% endblock %}

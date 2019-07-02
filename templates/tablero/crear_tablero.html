@@ -1,0 +1,11 @@
+
+	{% block main %}
+	<center><h1 class="h3 mb-0 text-gray-800">Crear Tablero</h1></center></br>
+    	<form action="" method="post">
+        	<center>
+		        {% csrf_token %}
+		        {{ form.as_p}}
+        	</center>
+        	<center><button type="submit">Crear</button></center></br>
+    	</form>
+	{% endblock main %}

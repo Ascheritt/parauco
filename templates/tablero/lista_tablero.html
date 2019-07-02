@@ -1,0 +1,25 @@
+{% block main %}
+<center><h1 class="h3 mb-0 text-gray-800">Lista Tableros</h1></center></br>
+    <table border="2">
+<thead>
+    <tr>
+       <td><center>ID</center></td>
+       <td><center>Nombre</center></td>
+       <td><center>Fecha</center></td>
+       <td><center>Acciones</center></td>
+    </tr>
+</thead>
+<tbody>
+    {% csrf_token %}
+    {% for tablero in object_list %}
+    <tr>
+        <td>{{ tablero.id}}</td>
+        <td>{{ tablero.nombre_tablero}}</td>
+        <td>{{ tablero.fecha}}</td>
+        <td style="width:30px"><center><button><a href="{% url 'editar_tablero' tablero.pk %}">Actualizar</a></button></center></td>
+        <td style="width:30px"><center><button><a href="{% url 'eliminar_tablero' tablero.pk %}">Eliminar</a></button></center></td>
+    {% endfor %}
+    </tr>
+</tbody>
+</table>
+{% endblock main %}
